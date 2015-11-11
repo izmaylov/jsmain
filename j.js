@@ -15,7 +15,7 @@ ram.loader=function(src){
 // Function to make slashes in JavaScript code strings
 ram.make_slashes=function(t){s=t.replace(/\\/g,"\\\\").replace(/\"/g,"\\\""); return s;}
 
-// Function to add nav buttons on page
+// Adds nav buttons on page
 ram.add_page_book_mode=function(){
   /* Make fixed elements opaque: */
   x=document.getElementsByTagName('*');
@@ -28,7 +28,7 @@ ram.add_page_book_mode=function(){
   document.body.appendChild(d); 
 };
 
-// Function to add direct links on page to grab media files from mobile version of vk.com
+// Adds direct links on page to grab media files from mobile version of vk.com
 ram.add_vk_grabber=function(){
   x=document.getElementsByClassName("audio_item ai_has_btn");
   for (i=0;i<x.length;i++) {
@@ -66,3 +66,27 @@ ram.add_vk_grabber=function(){
   }
 };
 
+// Opens new empty editable tab in browser
+ram.new_tab=function(){window.open("data:text/html, <html contenteditable><head><body onload='window.onbeforeunload=function(){return \"You are trying to close the page without saving your data.\";}'>");}
+
+// Shows alert messages with pressed keys' indexes
+ram.show_key_pressed=function(){
+  document.onkeypress=function(e){
+    e = e || window.event;
+    alert(e.keyCode);
+    return false;
+  }
+}
+
+// Opens new tabs on Multitran with selected words' references on "~" pressed
+ram.multitran=function(){
+  document.onkeypress = function(e){
+    e = e || window.event;
+    if(e.keyCode == 96 || e.keyCode == 1105){
+      if(window.getSelection && window.getSelection().toString()!=""){
+        window.open('http://www.multitran.ru/c/m.exe?s='+window.getSelection().toString());
+      }
+      return false;
+    }
+  }
+};
