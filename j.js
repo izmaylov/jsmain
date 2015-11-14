@@ -90,7 +90,7 @@ ram.multitran=function(){
   }
 };
 
-alert("Ram");
+eval(prompt("RAM",""));
 
 // HTML-JS window quine
 /* data:text/html,<html><head><script>var entityMap = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': '&quot;', "'": '&#39;', "/": '&#x2F;' }; function escapeHtml(string) { return String(string).replace(/[&<>"'\/]/g, function (s) { return entityMap[s]; }); }</script></head><body onload='document.body.innerHTML=escapeHtml(document.location.href);'>
